@@ -32,8 +32,8 @@ List of functions and description:
 Images of used screen:
 ----------------------
 
-.. image:: /1_8_TFT_Screen_1.jpeg
+.. image:: images/1_8_TFT_Screen_1.jpeg
 
-.. image:: /1_8_TFT_Screen_2.jpeg
+.. image:: images/1_8_TFT_Screen_2.jpeg
 
-.. image:: /1_8_TFT_Screen_3.jpeg
+.. image:: images/1_8_TFT_Screen_3.jpeg
