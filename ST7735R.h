@@ -50,7 +50,7 @@ class ST7735R{
 		void fillRect(int x, int y, int w, int h, int color);
 		void fillScreen(int color);
 		void drawPixel(int x, int y, int color);
-		void drawArrow(char C, int x, int y, int b, int col, int size);
+		void drawArrow(char c, int x, int y, int b, int col, int size);
 		int writeWord(String str, int x, int y, int b, int col, int size);
 		void drawHeart(int x, int y, int b, int col, int size);
 		void drawCircle(int x, int y, int r, int e, int rot);
@@ -58,15 +58,15 @@ class ST7735R{
 		void drawArc(int x, int y, int r, int e, int rot, int s, int f);
 		void fillArc(int x, int y, int r, int e, int rot, int s, int f, int color);
 	private:
-		_pins[3];
-		_mode;
-		_width;
-		_height;
+		int _pins[3];
+		int _mode;
+		int _width;
+		int _height;
 		void writeCommand(int c);
 		void writeData(int c);
 		void setAddressWindow(int x0, int y0, int x1, int y1);
-		int writeCharacter(char c, int x, int y, int b, int col, int size)
-		
-	
-	
-}
+		int writeCharacter(char c, int x, int y, int b, int col, int size);	
+};
+
+
+#endif
