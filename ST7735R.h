@@ -44,7 +44,7 @@ Released into the public domain
 
 class ST7735R{
 	public:
-		ST7735R(int pins[3], int mode);
+		ST7735R(int pins[2], int mode);
 		void begin(void);
 		int color(int red, int green, int blue);
 		void fillRect(int x, int y, int w, int h, int color);
@@ -58,7 +58,7 @@ class ST7735R{
 		void drawArc(int x, int y, int r, int e, int rot, int s, int f);
 		void fillArc(int x, int y, int r, int e, int rot, int s, int f, int color);
 	private:
-		int _pins[3];
+		int _pins[2];
 		int _mode;
 		int _width;
 		int _height;
