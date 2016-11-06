@@ -9,7 +9,7 @@ Written by Matevž Marš, november 2016
 #include "ST7735R.h"
 #include "SPI.h"
 
-int pins[3]={AA2,AB2,AB4}; 
+int pins[2]={AB2,AB4}; 
 /* Connect pins as shown below:
 VCC  -> 3.3 V
 GND  -> GND
