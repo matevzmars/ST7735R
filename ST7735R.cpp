@@ -8,6 +8,8 @@ Released into the public domain
 #include "ST7735R.h"
 #include "SPI.h"
 
+
+
 ST7735R::ST7735R(int pins[3], int mode){
 	for(int i=0;i<3;i++){
 		_pins[i] = pins[i];
@@ -25,10 +27,7 @@ void ST7735R::begin(void){
 	SPI.setBitOrder(MSBFIRST);
 	SPI.setClockDivider(4);
 	SPI.setDataMode(SPI_MODE1);
-	EALLOW;  
-	SysCtrlRegs.LOSPCP.bit.LSPCLK = 0;  
-	EDIS; //run at 15 MHz, 66 ns period
-	
+
 	delay(1);
 	digitalWrite(_pins[1],HIGH);
 	delay(150);
@@ -103,7 +102,7 @@ int ST7735R::color(int red, int green, int blue){
 }
 
 void ST7735R::fillRect(int x, int y, int w, int h, int color){
-	if((x < 0) ||(x >= width) || (y < 0) || (y >= height)) return;
+	if((x < 0) ||(x >= _width) || (y < 0) || (y >= _height)) return;
 	if((x + w - 1) >= _width)  w = _width  - x;
 	if((y + h - 1) >= _height) h = _height - y;
   
@@ -132,7 +131,7 @@ void ST7735R::fillScreen(int color){
 }
 
 void ST7735R::drawPixel(int x, int y, int color){
-	if((x < 0) ||(x >= width) || (y < 0) || (y >= height)) return;
+	if((x < 0) ||(x >= _width) || (y < 0) || (y >= _height)) return;
 	setAddressWindow(x,y,x+1,y+1);
    
 	writeCommand(RAMWR);
@@ -654,7 +653,7 @@ int ST7735R::writeCharacter(char c, int x, int y, int b, int col, int size){
 	return 0;
 }
 
-void ST7735R::drawArrow(char C, int x, int y, int b, int col, int size){
+void ST7735R::drawArrow(char c, int x, int y, int b, int col, int size){
 	switch(c){
 		case 'R': //right arrow
 			fillRect(x,y,9*size,9*size,b);
