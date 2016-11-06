@@ -21,7 +21,7 @@ List of functions and description:
 
 - *drawHeart(int x, int y, int b, int col, int size)*: draws heart. Other parameters are the same as in commands above.
 
-- *drawCircle(int x, int y, int r, int e, int rot)*: draws ellipse with center in point defined with *x* and *y*. *r* is radius and *e* is eccentricity (for circle: *e=0*). You can rotate ellipse for angle *rot* (in degrees) from x-axis.
+- *drawCircle(int x, int y, int r, int e, int rot)*: draws ellipse with center in point defined with *x* and *y*. *r* is radius or length of major semi-axis and *e* is eccentricity (for circle: *e=0*). You can rotate ellipse for angle *rot* (in degrees) from x-axis.
 
 - *fillCircle(int x, int y, int r, int e, int rot, int color)*: same as drawCircle, but filled with color *color*.
 
