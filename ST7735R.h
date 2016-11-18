@@ -9,6 +9,7 @@ Released into the public domain
 
 #include "Energia.h"
 #include "SPI.h"
+#include "pins_energia.h"
 
 #define SWRESET 	0x01
 #define SLPIN   	0x10
@@ -44,7 +45,7 @@ Released into the public domain
 
 class ST7735R{
 	public:
-		ST7735R(int pins[2], int mode);
+		ST7735R(int pins[3], int mode);
 		void begin(void);
 		int color(int red, int green, int blue);
 		void fillRect(int x, int y, int w, int h, int color);
@@ -57,15 +58,18 @@ class ST7735R{
 		void fillCircle(int x, int y, int r, int e, int rot, int color);
 		void drawArc(int x, int y, int r, int e, int rot, int s, int f);
 		void fillArc(int x, int y, int r, int e, int rot, int s, int f, int color);
+		void digitalHigh(int pin);
+		void digitalLow(int pin);
 	private:
-		int _pins[2];
+		int _pins[3];
 		int _mode;
+		int _gpio_number;
 		int _width;
 		int _height;
-		void writeCommand(int c);
-		void writeData(int c);
-		void setAddressWindow(int x0, int y0, int x1, int y1);
-		int writeCharacter(char c, int x, int y, int b, int col, int size);	
+		void _writeCommand(int c);
+		void _writeData(int c);
+		void _setAddressWindow(int x0, int y0, int x1, int y1);
+		int _writeCharacter(char c, int x, int y, int b, int col, int size);	
 };
 
 
