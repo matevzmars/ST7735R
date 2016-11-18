@@ -47,15 +47,15 @@ void ST7735R::begin(void){
 	for(int i=0;i<3;i++){
 		pinMode(_pins[i],OUTPUT);
 	}
-	digitalWrite(_pins[0],HIGH);
-	digitalWrite(_pins[1],LOW);
+	digitalHigh(_pins[0]);
+	digitalLow(_pins[1]);
 	SPI.begin();
 	SPI.setBitOrder(MSBFIRST);
 	SPI.setClockDivider(4);
 	SPI.setDataMode(SPI_MODE1);
 
 	delay(1);
-	digitalWrite(_pins[1],HIGH);
+	digitalHigh(_pins[1]);
 	delay(150);
 	
 	_writeCommand(SLPOUT); //don't sleep
@@ -96,17 +96,17 @@ void ST7735R::begin(void){
 }
 
 void ST7735R::_writeCommand(int c){
-	digitalWrite(_pins[2],LOW);
-	digitalWrite(_pins[0],LOW);
+	digitalLow(_pins[2]);
+	digitalLow(_pins[0]);
 	SPI.transfer(c);
-	digitalWrite(_pins[0],HIGH);
+	digitalHigh(_pins[0]);
 }
 
 void ST7735R::_writeData(int c){
-	digitalWrite(_pins[2],HIGH);
-	digitalWrite(_pins[0],LOW);
+	digitalHigh(_pins[2]);
+	digitalLow(_pins[0]);
 	SPI.transfer(c);
-	digitalWrite(_pins[0],HIGH);
+	digitalHigh(_pins[0]);
 }
 
 void ST7735R::_setAddressWindow(int x0, int y0, int x1, int y1){
@@ -139,8 +139,8 @@ void ST7735R::fillRect(int x, int y, int w, int h, int color){
    
 	_writeCommand(RAMWR);
    
-	digitalWrite(_pins[2], HIGH); 
-	digitalWrite(_pins[0], LOW); 
+	digitalHigh(_pins[2]); 
+	digitalLow(_pins[0]); 
    
 	for(y=h;y>0;y--){
 		for(x=w;x>0;x--){
@@ -149,7 +149,7 @@ void ST7735R::fillRect(int x, int y, int w, int h, int color){
 		}	
 	}
 	
-	digitalWrite(_pins[0], HIGH);
+	digitalHigh(_pins[0]);
 }
 
 void ST7735R::fillScreen(int color){
@@ -162,11 +162,11 @@ void ST7735R::drawPixel(int x, int y, int color){
    
 	_writeCommand(RAMWR);
    
-	digitalWrite(_pins[2],HIGH); 
-	digitalWrite(_pins[0], LOW); 
+	digitalHigh(_pins[2]); 
+	digitalLow(_pins[0]); 
 	SPI.transfer(color >> 8);
 	SPI.transfer(color & 0x0F);
-	digitalWrite(_pins[0],HIGH);
+	digitalHigh(_pins[0]);
 }
 
 int ST7735R::_writeCharacter(char c, int x, int y, int b, int col, int size){
