@@ -13,7 +13,7 @@ int pins[3]={AA2,AB2,AB4};
 /* Connect pins as shown below:
 VCC  -> 3.3 V
 GND  -> GND
-CS   -> GND
+CS   -> AA2
 RES  -> AB2
 A0   -> AB4
 SDA  -> P16
