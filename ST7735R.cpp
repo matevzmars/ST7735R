@@ -50,8 +50,6 @@ void ST7735R::begin(void){
 	digitalHigh(_pins[0]);
 	digitalLow(_pins[1]);
 	SPI.begin();
-	SPI.setBitOrder(MSBFIRST);
-	SPI.setClockDivider(4);
 	SPI.setDataMode(SPI_MODE1);
 
 	delay(1);
@@ -674,7 +672,15 @@ int ST7735R::_writeCharacter(char c, int x, int y, int b, int col, int size){
 			fillRect(x,y,2*size,7*size,b);
 			fillRect(x+size,y+2*size,size,size,col);
 			fillRect(x+size,y+4*size,size,size,col);
-			return 2*size;         
+			return 2*size; 
+		case '.':
+			fillRect(x,y,2*size,7*size,b);
+			fillRect(x+size,y+6*size,size,size,col);
+			return 2*size;
+		case ',':
+			fillRect(x,y,2*size,7*size,b);
+			fillRect(x+size,y+5*size,size,2*size,col);
+			return 2*size;
 	}
 	return 0;
 }
