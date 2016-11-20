@@ -59,7 +59,7 @@ void ST7735R::begin(void){
 	_writeCommand(SLPOUT); //don't sleep
 	delay(150); 
 	
-	switch(_mode){ //flip image
+	switch(_mode){ //flip image: currently not working
 		case 0:
 			_height=160;
 			_width=128;
