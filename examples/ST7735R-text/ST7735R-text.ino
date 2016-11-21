@@ -21,7 +21,7 @@ SCK  -> P18
 LED  -> 3.3 V
 */
 
-ST7735R screen(pins,0); //0 is default screen orientation, 1 for 90° rotation, 2 for 180° roatation and 3 for 270° rotation
+ST7735R screen(pins,0); //0 is default screen orientation (portrait), 1 for landscape orientation, 2 for 180° roatated portrait and 3 for 180° roatated landscape
 
 void setup(){
   screen.begin();
