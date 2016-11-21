@@ -61,26 +61,33 @@ void ST7735R::begin(void){
 	
 	switch(_mode){ //flip image: currently not working
 		case 0:
+			_writeCommand(MADCTL);
+			_writeData(FLIP_0);
+			delay(10);
 			_height=160;
 			_width=128;
+			break;
 		case 1:
 			_writeCommand(MADCTL);
 			_writeData(FLIP_R);
 			delay(10);
 			_height=128;
 			_width=160;
+			break;
 		case 2:
 			_writeCommand(MADCTL);
 			_writeData(FLIP_180);
 			delay(10);
 			_height=160;
 			_width=128;
+			break;
 		case 3:
 			_writeCommand(MADCTL);
 			_writeData(FLIP_L);
 			delay(10);
 			_height=128;
 			_width=160;
+			break;
 	}
 	
 	_writeCommand(DISPON);  // turn display on
