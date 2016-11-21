@@ -40,7 +40,8 @@ Released into the public domain
 #define RDID3   	0xdc
 #define FLIP_R  	0xA0 
 #define FLIP_L  	0x60 
-#define FLIP_180	0xC0  
+#define FLIP_180	0xC0
+#define FLIP_0		0x00  
 
 
 class ST7735R{
